@@ -1,0 +1,9 @@
+(Throttling *Exception|Too many requests)
+Serialization *Exception
+Not *Found *Exception
+Missing *Authentication *Token
+Access *Denied
+ValidationException.+length
+ValidationException.+satisfy regular expression
+InvalidResourceStateException
+Internal *Server *Exception
